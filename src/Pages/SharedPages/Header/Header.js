@@ -2,9 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+ 
 import { FaUser } from 'react-icons/fa';
 import { Tooltip } from '@mui/material';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
  
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
