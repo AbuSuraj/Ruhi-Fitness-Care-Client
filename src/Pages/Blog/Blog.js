@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 const Blog = () => {
     useEffect(() => {
         Aos.init();
-      },[])
+      }, []);
     return (
         <div>
             <h1 className="text-3xl text-center font-bold font-serif my-5 ">
@@ -63,7 +63,7 @@ const Blog = () => {
       </div>
       <div
         data-aos="fade-up-right"
-        className="ml-20 my-8 mr-4 border border-2 rounded-3xl p-4   shadow-2xl"
+        className="ml-20 my-8 mr-4 border-2 rounded-3xl p-4   shadow-2xl"
       >
         <h1 className="text-2xl font-bold">
           Q.3. What is the difference between javascript and NodeJS?
