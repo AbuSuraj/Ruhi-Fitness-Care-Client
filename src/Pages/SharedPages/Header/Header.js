@@ -22,37 +22,37 @@ const Header = () => {
   }
     return (
         <div className="bg-gray-100 font-sans w-full m-0">
-      <div className="bg-gray-900 text-sky-500 shadow">
+      <div className="bg-neutral text-sky-500 shadow">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1">
-            <div>
+            <nav>
             <NavLink className="flex items-center  text-3xl font-bold font-heading" to={"/"}>
               {/* <!-- <img className="h-9" src="logo.png" alt="logo"> --> */}
-            <img className='rounded-full' style={{width:50, height:50}} src='https://i.ibb.co/XsHFDFk/logo.jpg' alt='logo'></img>
-              <span className='ml-2'>Islamic Ilm Center</span>
+            <img className='rounded-full' style={{width:50, height:50}} src='https://i.ibb.co/vc5hnd4/logo.jpg' alt='logo'></img>
+              <span className='ml-2'>Ruhi's Fitness Center</span>
             </NavLink>
-            </div>
+            </nav>
     
-            <ul className="hidden sm:flex sm:items-center list-none">
-              <li  className="text-sm font-semibold  mr-4"><NavLink className="hover:text-gray-200" to={"/home"}>
+            <nav className="hidden sm:flex sm:items-center list-none">
+              <li  className="text-sm font-semibold  mr-4"><NavLink className="hover:text-error" to={"/home"}>
                 Home
               </NavLink></li>
-              <li   className=" text-sm font-semibold mr-4"><NavLink className="hover:text-gray-200" to={"/courses"}>
-                Courses
+              <li   className=" text-sm font-semibold mr-4"><NavLink className="hover:text-error" to={"/addServices"}>
+               Add Services
               </NavLink></li>
-              <li  className="text-sm font-semibold mr-4"><NavLink className="hover:text-gray-200" to={"/faq"}>
-                FAQ
+              <li  className="text-sm font-semibold mr-4"><NavLink className="hover:text-error" to={"/my-reviews"}>
+                My-Reviews
               </NavLink></li>
-              <li  className="text-sm font-semibold"><NavLink className="hover:text-gray-200" to={"/blog"}>
+              <li  className="text-sm font-semibold"><NavLink className="hover:text-error" to={"/blog"}>
                 Blog
               </NavLink></li>
-            </ul>
+            </nav>
     
-            <ul className="hidden sm:flex sm:items-center justify-between list-none">
+            <nav className="hidden sm:flex sm:items-center justify-between list-none">
             {user?.uid ? (
               <>
                 <li>
-                  <NavLink to={"/profile"} className="hover:text-gray-200 mr-4">
+                  <NavLink to={"/profile"} className="hover:text-error mr-4">
                     {user?.displayName}
                   </NavLink>
                 </li>
@@ -73,7 +73,7 @@ const Header = () => {
             </NavLink>
                 </li>
                 <li>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" onClick={handleLogOut}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" onClick={handleLogOut}>
                     Logout
                   </NavLink>
                 </li>
@@ -82,12 +82,12 @@ const Header = () => {
               <>
                 <li>
                   {" "}
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" to={"/login"}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" to={"/login"}>
                     Login
                   </NavLink>{" "}
                 </li>
                 <li>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" to={"/register"}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" to={"/register"}>
                     register
                   </NavLink>
                 </li>
@@ -95,33 +95,33 @@ const Header = () => {
               </>
             )}
             <li onClick={handleTheme}>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200">{theme ? 'light-theme' : 'dark-theme'} </NavLink>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error">{theme ? 'light-theme' : 'dark-theme'} </NavLink>
                 </li>
-            </ul>
+            </nav>
     
           </div>
           
           <div className="block sm:hidden bg-gray-900 text-sky-500 border-t-2 py-2">
-            <ul className="list-none flex flex-col">
-              <li  className="text-sm font-semibold mb-1"><NavLink className="hover:text-gray-200" to={"/home"}>
+            <nav className="list-none flex flex-col">
+              <li  className="text-sm font-semibold mb-1"><NavLink className="hover:text-error" to={"/home"}>
                 Home
               </NavLink></li>
-              <li className="text-sm font-semibold  mb-1"><NavLink className="hover:text-gray-200" to={"/courses"}>
-                Courses
+              <li className="text-sm font-semibold  mb-1"><NavLink className="hover:text-error" to={"/addServices"}>
+                Add Services
               </NavLink></li>
-              <li className=" text-sm font-semibold   mb-1"><NavLink className="hover:text-gray-200" to={"/faq"}>
-                FAQ
+              <li className=" text-sm font-semibold   mb-1"><NavLink className="hover:text-error" to={"/my-reviews"}>
+              My-Reviews
               </NavLink></li>
-              <li className="text-sm font-semibold  mb-1"><NavLink className="hover:text-gray-200" to={"/blog"}>
+              <li className="text-sm font-semibold  mb-1"><NavLink className="hover:text-error" to={"/blog"}>
                 Blog
               </NavLink></li>
 
               {/* <ul className="hidden sm:flex sm:items-center list-none"> */}
-              <ul className="list-none flex justify-between items-center border-t-2 pt-2">
+              <nav className="list-none flex justify-between items-center border-t-2 pt-2">
             {user?.uid ? (
               <>
                 <li>
-                  <NavLink to={"/profile"} className="hover:text-gray-200 mr-4">
+                  <NavLink to={"/profile"} className="hover:text-error mr-4">
                     {user?.displayName}
                   </NavLink>
                 </li>
@@ -140,7 +140,7 @@ const Header = () => {
                 </li>
 
                 <li>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" onClick={handleLogOut}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" onClick={handleLogOut}>
                     Logout
                   </NavLink>
                 </li>
@@ -149,23 +149,23 @@ const Header = () => {
               <>
                 <li>
                   {" "}
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" to={"/login"}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" to={"/login"}>
                     Login
                   </NavLink>{" "}
                 </li>
                 <li>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200" to={"/register"}>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error" to={"/register"}>
                     register
                   </NavLink>
                 </li>
               </>
             )}
             <li onClick={handleTheme}>
-                  <NavLink className="text-sm font-semibold mr-4 hover:text-gray-200">{theme ? 'light-theme' : 'dark-theme'} </NavLink>
+                  <NavLink className="text-sm font-semibold mr-4 hover:text-error">{theme ? 'light-theme' : 'dark-theme'} </NavLink>
                 </li>
-            </ul>
+            </nav>
                
-            </ul>
+            </nav>
           </div>
         </div>
       </div>

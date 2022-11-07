@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
+import MyReview from "../../Pages/MyReviews/MyReviews";
+import AddServices from "../../Pages/Services.js/AddServices";
+import addServices from "../../Pages/Services.js/AddServices";
 
  export const routes = createBrowserRouter([
     {
@@ -13,8 +17,20 @@ import Home from "../../Pages/Home/Home";
                 element:<Home></Home>
             },
             {
+                path:'/home',
+                element:<Home></Home>
+            },
+            {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/addServices',
+                element:<AddServices></AddServices>
+            },
+            {
+                path:'/my-reviews',
+                element:<MyReviews></MyReviews>
             }
         ]
     }
