@@ -6,10 +6,16 @@ import { Link, NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { Tooltip } from "@mui/material";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { color, padding } from "@mui/system";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-
+  let activeStyle = {
+    backgroundColor:'#3de038',
+    color: 'black',
+    padding: '4px',
+    borderRadius: '20px'
+  };
   const handleLogOut = () => {
     logout()
       .then(() => {})
@@ -35,28 +41,36 @@ const Header = () => {
                   src="https://i.ibb.co/vc5hnd4/logo.jpg"
                   alt="logo"
                 ></img>
-                <span className="ml-2">Ruhi's Fitness Center</span>
+                <span className="ml-2 hover:bg-gray-300">Ruhi's Fitness Care</span>
               </NavLink>
             </nav>
 
             <nav className="hidden sm:flex sm:items-center list-none">
               <li className="text-sm font-semibold  mr-4">
-                <NavLink className="hover:text-error" to={"/home"}>
+                <NavLink  style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            } className="hover:text-black" to={"/home"}>
                   Home
                 </NavLink>
               </li>
               <li className=" text-sm font-semibold mr-4">
-                <NavLink className="hover:text-error" to={"/addServices"}>
+                <NavLink style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            } className="hover:text-black" to={"/addServices"}>
                   Add Services
                 </NavLink>
               </li>
               <li className="text-sm font-semibold mr-4">
-                <NavLink className="hover:text-error" to={"/my-reviews"}>
+                <NavLink style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            } className="hover:text-black" to={"/my-reviews"}>
                   My-Reviews
                 </NavLink>
               </li>
               <li className="text-sm font-semibold">
-                <NavLink className="hover:text-error" to={"/blog"}>
+                <NavLink style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            } className="hover:text-black" to={"/blog"}>
                   Blog
                 </NavLink>
               </li>
@@ -66,13 +80,14 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <li>
-                    <NavLink to={"/profile"} className="hover:text-error mr-4">
+                    <NavLink to={"/profile"} className="hover:text-black mr-4">
                       {user?.displayName}
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/profile">
                       {user?.photoURL ? (
+                         
                         <Tooltip title={user?.displayName} arrow>
                           <img
                             place="top"
@@ -92,7 +107,7 @@ const Header = () => {
                   </li>
                   <li>
                     <NavLink
-                      className="text-sm font-semibold mr-4 hover:text-error"
+                      className="text-sm font-semibold mr-4 hover:text-black"
                       onClick={handleLogOut}
                     >
                       Logout
@@ -104,16 +119,22 @@ const Header = () => {
                   <li>
                     {" "}
                     <NavLink
-                      className="text-sm font-semibold mr-4 hover:text-error"
+                      className="text-sm font-semibold mr-4 hover:text-black"
                       to={"/login"}
+                      style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
                     >
                       Login
                     </NavLink>{" "}
                   </li>
                   <li>
                     <NavLink
-                      className="text-sm font-semibold mr-4 hover:text-error"
+                      className="text-sm font-semibold mr-4 hover:text-black"
                       to={"/register"}
+                      style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
                     >
                       register
                     </NavLink>
@@ -126,22 +147,32 @@ const Header = () => {
           <div className="block sm:hidden bg-gray-900 text-sky-500 border-t-2 py-2">
             <nav className="list-none flex flex-col">
               <li className="text-sm font-semibold mb-1">
-                <NavLink className="hover:text-error" to={"/home"}>
+                <NavLink className="hover:text-black" to={"/home"}
+                style={({ isActive }) =>
+                isActive ? activeStyle : undefined
+              }
+                >
                   Home
                 </NavLink>
               </li>
               <li className="text-sm font-semibold  mb-1">
-                <NavLink className="hover:text-error" to={"/addServices"}>
+                <NavLink className="hover:text-black" to={"/addServices"} style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                   Add Services
                 </NavLink>
               </li>
               <li className=" text-sm font-semibold   mb-1">
-                <NavLink className="hover:text-error" to={"/my-reviews"}>
+                <NavLink className="hover:text-black" to={"/my-reviews"} style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                   My-Reviews
                 </NavLink>
               </li>
               <li className="text-sm font-semibold  mb-1">
-                <NavLink className="hover:text-error" to={"/blog"}>
+                <NavLink className="hover:text-black" to={"/blog"} style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                   Blog
                 </NavLink>
               </li>
@@ -153,7 +184,7 @@ const Header = () => {
                     <li>
                       <NavLink
                         to={"/profile"}
-                        className="hover:text-error mr-4"
+                        className="hover:text-black mr-4"
                       >
                         {user?.displayName}
                       </NavLink>
@@ -175,7 +206,7 @@ const Header = () => {
 
                     <li>
                       <NavLink
-                        className="text-sm font-semibold mr-4 hover:text-error"
+                        className="text-sm font-semibold mr-4 hover:text-black"
                         onClick={handleLogOut}
                       >
                         Logout
@@ -187,16 +218,20 @@ const Header = () => {
                     <li>
                       {" "}
                       <NavLink
-                        className="text-sm font-semibold mr-4 hover:text-error"
-                        to={"/login"}
+                        className="text-sm font-semibold mr-4 hover:text-black"
+                        to={"/login"} style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
                       >
                         Login
                       </NavLink>{" "}
                     </li>
                     <li>
                       <NavLink
-                        className="text-sm font-semibold mr-4 hover:text-error"
-                        to={"/register"}
+                        className="text-sm font-semibold mr-4 hover:text-black"
+                        to={"/register"} style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
                       >
                         register
                       </NavLink>

@@ -151,7 +151,7 @@ const Footer = () => {
                    className="text-blueGray-500 hover:text-white"
                 >
                   {" "}
-                  Ruhi's Fitness Center
+                  Ruhi's Fitness Care
                 </a>{" "}              </a>
             </div>
           </div>
