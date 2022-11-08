@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddServices from "../../Pages/AddServices/AddServices";
 import Blog from "../../Pages/Blog/Blog";
 import Login from "../../Pages/Form/Login/Login";
 import Register from "../../Pages/Form/Register/Register";
 import Home from "../../Pages/Home/Home";
+import ServiceDetails from "../../Pages/Home/Services.js/ServiceDetails";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import MyReview from "../../Pages/MyReviews/MyReviews";
-import AddServices from "../../Pages/Services.js/AddServices";
-import addServices from "../../Pages/Services.js/AddServices";
+ 
+ 
 
  export const routes = createBrowserRouter([
     {
@@ -29,6 +31,11 @@ import addServices from "../../Pages/Services.js/AddServices";
             {
                 path:'/addServices',
                 element:<AddServices></AddServices>
+            },
+            {
+                path:'/details/:id',
+                element:<ServiceDetails></ServiceDetails>,
+                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path:'/my-reviews',
