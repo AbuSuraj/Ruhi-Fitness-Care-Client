@@ -144,7 +144,7 @@ const Header = () => {
             </nav>
           </div>
 
-          <div className="block sm:hidden bg-gray-900 text-sky-500 border-t-2 py-2">
+          <div className="block sm:hidden bg-neutral text-sky-500 border-t-2 py-2">
             <nav className="list-none flex flex-col">
               <li className="text-sm font-semibold mb-1">
                 <NavLink className="hover:text-black" to={"/home"}
