@@ -38,7 +38,7 @@ import MyReview from "../../Pages/MyReviews/MyReviews";
             {
                 path:'/allservices',
                 element:<AllServices></AllServices>,
-                loader: async () => fetch('https://fitness-gamma.vercel.app/allservices')
+                loader: async () => fetch('http://localhost:5000/allservices')
             },
             {
                 path:'/details/:id',
