@@ -36,12 +36,12 @@ import MyReview from "../../Pages/MyReviews/MyReviews";
             {
                 path:'/allservices',
                 element:<AllServices></AllServices>,
-                loader: async () => fetch('http://localhost:5000/allservices')
+                loader: async () => fetch('https://fitness-gamma.vercel.app/allservices')
             },
             {
                 path:'/details/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://fitness-gamma.vercel.app/services/${params.id}`)
             },
             {
                 path:'/my-reviews',
