@@ -5,6 +5,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Login from "../../Pages/Form/Login/Login";
 import Register from "../../Pages/Form/Register/Register";
 import Home from "../../Pages/Home/Home";
+import AllServices from "../../Pages/Home/Services.js/AllServices";
 import ServiceDetails from "../../Pages/Home/Services.js/ServiceDetails";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import MyReview from "../../Pages/MyReviews/MyReviews";
@@ -31,6 +32,11 @@ import MyReview from "../../Pages/MyReviews/MyReviews";
             {
                 path:'/addServices',
                 element:<AddServices></AddServices>
+            },
+            {
+                path:'/allservices',
+                element:<AllServices></AllServices>,
+                loader: async () => fetch('http://localhost:5000/allservices')
             },
             {
                 path:'/details/:id',
