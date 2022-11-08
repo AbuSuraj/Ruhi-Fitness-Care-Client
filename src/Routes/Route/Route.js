@@ -5,9 +5,9 @@ import Blog from "../../Pages/Blog/Blog";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Login from "../../Pages/Form/Login/Login";
 import Register from "../../Pages/Form/Register/Register";
-import Home from "../../Pages/Home/Home";
+import Home from "../../Pages/Home/Home/Home";
 import AllServices from "../../Pages/Home/Services.js/AllServices";
-import ServiceDetails from "../../Pages/Home/Services.js/ServiceDetails";
+import ServiceDetails from "../../Pages/Home/Services.js/ServiceCard/ServiceDetails/ServiceDetails";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import MyReview from "../../Pages/MyReviews/MyReviews";
  

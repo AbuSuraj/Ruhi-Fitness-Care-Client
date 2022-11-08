@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Banner from './Banner/Banner';
-import Services from './Services.js/Services';
+import Banner from '../Banner/Banner';
+import Services from '../Services.js/Services';
 
 const Home = () => {
     return (
