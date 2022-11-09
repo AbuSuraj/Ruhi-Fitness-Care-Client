@@ -3,6 +3,7 @@ import ReviewCard from './ReviewCard';
 
 const AllReviews = ({serviceId, refresh, setrefresh}) => {
     const [reviews, setReviews] = useState([]);
+    
     // console.log(reviews)
     useEffect( () =>{
         fetch(`https://fitness-gamma.vercel.app/reviews/${serviceId}`)
@@ -10,7 +11,7 @@ const AllReviews = ({serviceId, refresh, setrefresh}) => {
         .then(data => setReviews(data))
     }, [serviceId, refresh]);
     return (
-        <div className='my-10'>
+        <div data-aos="flip-up" className='my-10'>
                {/* < className='grid gap-6  ml-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'> */}
                 { 
                 reviews?.length===0 ? 

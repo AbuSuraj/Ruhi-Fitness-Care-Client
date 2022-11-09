@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import Review from "./Review/Review";
-
+import AOS from "aos";
+import "aos/dist/aos.css"
 const ServiceDetails = () => {
   const { _id, img, price, title, duration, description } = useLoaderData();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div>
       <h2 className="font-bold text-3xl text-center mt-4 mb-10 ml-4">service details</h2>
-      <div className="card card-compact  mx-10 bg-base-200 shadow-xl">
+      <div  className="card card-compact  mx-10 bg-base-200 shadow-xl">
           <h2 className="card-title my-4 ml-4 md:ml-10">{title}</h2>
-          <PhotoProvider>
+          <div data-aos="flip-down">
+
+          <PhotoProvider >
           <PhotoView src={img}>
         <figure>
-          <img className="w-[50%] rounded shadow-xl mt-4" src={img} alt="service" />
+          <img  className="w-[50%] rounded shadow-xl mt-4" src={img} alt="service" />
         </figure>
         </PhotoView>
           </PhotoProvider>
+          </div>
         <div className="card-body">
           <div className="inline-block align-bottom mr-5">
                   <span className="text-2xl leading-none align-baseline">

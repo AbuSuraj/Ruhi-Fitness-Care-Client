@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const ServiceCard = ({service }) => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
     const { _id, img, price, title, duration,description } = service;
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div data-aos="fade-up" className="card card-compact w-96 bg-base-100 shadow-xl">
              <PhotoProvider>
              <PhotoView src={img}>
             <figure><img className='w-full' src={img} alt="Shoes" /></figure>
