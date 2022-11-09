@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Features from '../Features/Features';
 import Services from '../Services.js/Services';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
           <div className='text-center my-10'>
           <Link to={'/allservices'} className='btn btn-primary '>See All Services</Link>
           </div>
+          <Features></Features>
         </div>
     );
 };
