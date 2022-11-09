@@ -10,10 +10,18 @@ const MyReviews = () => {
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)
     useEffect(() =>{
-        fetch(`http://localhost:5000/my-reviews/${user?.email}`)
-        .then(res =>{return res.json()})
+        fetch(`http://localhost:5000/my-reviews/${user?.email}`,{
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('myReview-token')}`
+        }
+        })
+        .then(res =>{
+          if (res.status === 401 || res.status === 403) {
+          return logOut();
+      }
+      return res.json();})
         .then(data => setMyReview(data))
-    },[user?.email])
+    },[user?.email,logOut])
     // console.log(myReview)
     const handleDelete = (id) =>{
         Swal.fire({

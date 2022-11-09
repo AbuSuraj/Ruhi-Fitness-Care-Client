@@ -31,16 +31,27 @@ const Login = () => {
     signin(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user?.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+        .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // local storage is the easiest but not the best place to store jwt token
+            localStorage.setItem("myReview-token", data.token);
         form.reset();
         setError("");
-        // if(user.emailVerified){
+         
         toast.success("Login Success!");
         navigate(from, { replace: true });
-        //  }
-        //  else{
-        //   toast.error("Please Verify your email")
-        //  }
-        // console.log("logged in", result.user);
+          })
       })
       .catch((error) => {
         toast.error(error.message);
