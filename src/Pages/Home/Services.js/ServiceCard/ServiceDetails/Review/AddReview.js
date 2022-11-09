@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../../Context/AuthProvider/AuthProvider';
 
-const AddReview = () => {
+const AddReview = ({serviceId,refresh, setrefresh}) => {
     const {user} = useContext(AuthContext);
     const {displayName,photoURL, email} = user;
     const handleAddReview = e =>{
@@ -11,7 +11,7 @@ const AddReview = () => {
         const text = form.text.value;
 
         const review = {
-            displayName, photoURL, email, text
+            displayName, photoURL, email, text, serviceId
         }
         fetch('http://localhost:5000/addReview', {
     method: 'POST',
@@ -25,6 +25,7 @@ const AddReview = () => {
     .then(data => {
         console.log(data)
         if(data.acknowledged){
+            setrefresh(!refresh);
             toast.success('review added successfully')
             form.reset();
             

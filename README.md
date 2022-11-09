@@ -19,6 +19,7 @@ This project hosted in firebase. Live site link: https://ilm-center-7bfb1.web.ap
 <li>React Hot-toast: https://react-hot-toast.com/</li>
 <li>LottieFiles: https://lottiefiles.com/animation/react</li>
 <li>AOS: https://michalsnik.github.io/aos/</li>
+<li>React-Photo-view: https://react-photo-view.vercel.app/docs/getting-started</li>
 
  
 
