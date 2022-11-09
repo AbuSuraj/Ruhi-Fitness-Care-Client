@@ -1,9 +1,9 @@
 import React from "react";
 
-const MyReviewRow = ({ mReview }) => {
+const MyReviewRow = ({mReview,handleDelete }) => {
     const {serviceName, text, _id} = mReview;
     console.log(_id)
-    const handleDelete = _id =>{}
+    
   return (
     
           <tr>

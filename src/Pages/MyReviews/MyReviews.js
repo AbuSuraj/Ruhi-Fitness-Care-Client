@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import MyReviewRow from './MyReviewRow';
 
@@ -12,7 +13,38 @@ const MyReviews = () => {
         .then(data => setMyReview(data))
     },[user?.email])
     // console.log(myReview)
-    const handleDelete = () =>{}
+    const handleDelete = (id) =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(`http://localhost:5000/my-reviews/${id}`,{
+                method: 'DELETE'
+            })
+            .then( res =>res.json())
+            .then(data =>{
+              /// deletedCount // dont forget this spelling
+              if(data.deletedCount > 0){
+                const remaining = myReview.filter(mrvw => mrvw._id !== id);
+                setMyReview(remaining);
+                 
+              }
+            })
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+        
+    }
     return (
          
       <div className="overflow-x-auto  mt-10 mx-4">
