@@ -1,7 +1,9 @@
 import Aos from 'aos';
 import React, { useEffect } from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
+  useTitle('Blog')
     useEffect(() => {
         Aos.init();
       }, []);

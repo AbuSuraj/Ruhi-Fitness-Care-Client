@@ -4,10 +4,12 @@ import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState("");
     // const [accepted, setAccepted] = useState(false);
+    useTitle('Register')
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'

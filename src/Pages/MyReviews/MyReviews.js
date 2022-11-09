@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import MyReviewRow from './MyReviewRow';
 
 const MyReviews = () => {
+    useTitle('My Review')
     const {user, logOut} = useContext(AuthContext);
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)

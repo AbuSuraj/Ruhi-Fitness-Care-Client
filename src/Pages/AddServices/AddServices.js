@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../hooks/useTitle";
 
 const AddServices = () => {
+  useTitle('AddService')
   const handleAddService = (e) => {
     e.preventDefault();
     const form = e.target;
