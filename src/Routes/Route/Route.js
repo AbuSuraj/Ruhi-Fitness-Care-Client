@@ -10,6 +10,7 @@ import AllServices from "../../Pages/Home/Services.js/AllServices";
 import ServiceDetails from "../../Pages/Home/Services.js/ServiceCard/ServiceDetails/ServiceDetails";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import MyReview from "../../Pages/MyReviews/MyReviews";
+import UpdateReview from "../../Pages/MyReviews/UpdateReview";
  
  
 
@@ -48,6 +49,12 @@ import MyReview from "../../Pages/MyReviews/MyReviews";
             {
                 path:'/my-reviews',
                 element:<MyReviews></MyReviews>,
+                
+            },
+            {
+                path:'/update-review/:id',
+                element:<UpdateReview></UpdateReview>,
+                loader: ({params}) => fetch(`http://localhost:5000/update-review/${params.id}`)
                 
             },
             {

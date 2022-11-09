@@ -43,8 +43,9 @@ const MyReviews = () => {
               )
             }
           })
+        }
+
         
-    }
     return (
          
       <div className="overflow-x-auto  mt-10 mx-4">
@@ -56,7 +57,7 @@ const MyReviews = () => {
                             <th className="border-8">Delete</th>
                             <th className="border-8">Service Name</th>
                             <th className="border-8">Review</th>
-                            <th className="border-8">Update</th>
+                            <th className="border-8">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,7 +66,7 @@ const MyReviews = () => {
                                 key={mReview._id}
                                 mReview={mReview}
                                 handleDelete={handleDelete}
-                                 
+                                // handleUpdate ={handleUpdate}
                             ></MyReviewRow>)
                         }
                     </tbody>
