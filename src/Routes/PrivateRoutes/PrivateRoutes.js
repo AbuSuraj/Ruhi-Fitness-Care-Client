@@ -7,12 +7,7 @@ const PrivateRoutes = ({children}) => {
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
     if(loading){
-        return <button type="button" class=" ..." disabled>
-        <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-           
-        </svg>
-        Loading...
-      </button>
+        return  <div className=" my-5 mx-auto w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> 
     }
     if(!user){
         return <Navigate to={'/login'} state ={{from: location}} replace ></Navigate>

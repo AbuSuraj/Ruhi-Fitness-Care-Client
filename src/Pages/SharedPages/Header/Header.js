@@ -54,18 +54,29 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className=" text-sm font-semibold mr-4">
-                <NavLink style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            } className="hover:text-black" to={"/addServices"}>
-                  Add Services
-                </NavLink>
+                {
+                  user?.uid ?  <NavLink style={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                } className="hover:text-black" to={"/addServices"}>
+                      Add Services
+                    </NavLink>
+                    :
+                    <></>
+                }
+               
               </li>
               <li className="text-sm font-semibold mr-4">
-                <NavLink style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            } className="hover:text-black" to={"/my-reviews"}>
-                  My-Reviews
-                </NavLink>
+
+                {
+                  user?.uid ? <NavLink style={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                } className="hover:text-black" to={"/my-reviews"}>
+                      My-Reviews
+                    </NavLink>
+                    :
+                    <></>
+                }
+                
               </li>
               <li className="text-sm font-semibold">
                 <NavLink style={({ isActive }) =>
@@ -156,18 +167,18 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className="text-sm font-semibold  mb-1">
-                <NavLink className="hover:text-black" to={"/addServices"} style={({ isActive }) =>
+                { user?.uid && <NavLink className="hover:text-black" to={"/addServices"} style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                   Add Services
-                </NavLink>
+                </NavLink>}
               </li>
               <li className=" text-sm font-semibold   mb-1">
-                <NavLink className="hover:text-black" to={"/my-reviews"} style={({ isActive }) =>
+              { user?.uid &&  <NavLink className="hover:text-black" to={"/my-reviews"} style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                   My-Reviews
-                </NavLink>
+                </NavLink>}
               </li>
               <li className="text-sm font-semibold  mb-1">
                 <NavLink className="hover:text-black" to={"/blog"} style={({ isActive }) =>

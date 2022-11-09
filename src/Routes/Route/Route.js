@@ -11,6 +11,7 @@ import ServiceDetails from "../../Pages/Home/Services.js/ServiceCard/ServiceDeta
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import MyReview from "../../Pages/MyReviews/MyReviews";
 import UpdateReview from "../../Pages/MyReviews/UpdateReview";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
  
  
 
@@ -34,7 +35,7 @@ import UpdateReview from "../../Pages/MyReviews/UpdateReview";
             },
             {
                 path:'/addServices',
-                element:<AddServices></AddServices>
+                element:<PrivateRoutes><AddServices></AddServices></PrivateRoutes>
             },
             {
                 path:'/allservices',
@@ -48,7 +49,7 @@ import UpdateReview from "../../Pages/MyReviews/UpdateReview";
             },
             {
                 path:'/my-reviews',
-                element:<MyReviews></MyReviews>,
+                element:<PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>,
                 
             },
             {
