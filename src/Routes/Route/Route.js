@@ -47,7 +47,8 @@ import MyReview from "../../Pages/MyReviews/MyReviews";
             },
             {
                 path:'/my-reviews',
-                element:<MyReviews></MyReviews>
+                element:<MyReviews></MyReviews>,
+                
             },
             {
                 path:'/register',

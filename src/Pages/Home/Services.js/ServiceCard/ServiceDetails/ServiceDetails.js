@@ -33,7 +33,7 @@ const ServiceDetails = () => {
                 <p>{description}</p>
          
         </div>
-      <Review key={_id} serviceId = {_id}
+      <Review key={_id} serviceId = {_id} serviceName = {title}
       ></Review>
       </div>
     </div>

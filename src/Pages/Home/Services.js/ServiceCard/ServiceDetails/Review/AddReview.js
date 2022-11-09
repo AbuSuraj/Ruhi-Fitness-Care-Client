@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../../../../Context/AuthProvider/AuthProvider';
 
-const AddReview = ({serviceId,refresh, setrefresh}) => {
+const AddReview = ({serviceId,serviceName,refresh, setrefresh}) => {
     const {user} = useContext(AuthContext);
     const location = useLocation();
     // const {displayName,photoURL, email} = user;
@@ -16,7 +16,7 @@ const AddReview = ({serviceId,refresh, setrefresh}) => {
             displayName: user?.displayName,
             photoURL:user?.photoURL,
             email:user?.email,
-             text, serviceId
+             text, serviceId, serviceName
         }
         fetch('http://localhost:5000/addReview', {
     method: 'POST',
