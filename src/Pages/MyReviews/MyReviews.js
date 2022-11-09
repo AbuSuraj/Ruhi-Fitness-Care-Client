@@ -10,7 +10,7 @@ const MyReviews = () => {
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)
     useEffect(() =>{
-        fetch(`http://localhost:5000/my-reviews/${user?.email}`,{
+        fetch(`https://fitness-gamma.vercel.app/my-reviews/${user?.email}`,{
           headers: {
             authorization: `Bearer ${localStorage.getItem('myReview-token')}`
         }
@@ -34,7 +34,7 @@ const MyReviews = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:5000/my-reviews/${id}`,{
+              fetch(`https://fitness-gamma.vercel.app/my-reviews/${id}`,{
                 method: 'DELETE'
             })
             .then( res =>res.json())

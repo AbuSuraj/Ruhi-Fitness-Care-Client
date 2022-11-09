@@ -5,7 +5,7 @@ const AllReviews = ({serviceId, refresh, setrefresh}) => {
     const [reviews, setReviews] = useState([]);
     // console.log(reviews)
     useEffect( () =>{
-        fetch(`http://localhost:5000/reviews/${serviceId}`)
+        fetch(`https://fitness-gamma.vercel.app/reviews/${serviceId}`)
         .then(res =>res.json())
         .then(data => setReviews(data))
     }, [serviceId, refresh]);

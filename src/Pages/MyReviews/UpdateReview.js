@@ -15,7 +15,7 @@ const UpdateReview = () => {
     console.log(review[0])
     const handleAddReview = e =>{
         e.preventDefault();
-        fetch(`http://localhost:5000/my-review/${review[0]._id}`,{
+        fetch(`https://fitness-gamma.vercel.app/my-review/${review[0]._id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

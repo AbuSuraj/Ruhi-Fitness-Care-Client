@@ -40,7 +40,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path:'/allservices',
                 element:<AllServices></AllServices>,
-                loader: async () => fetch('http://localhost:5000/allservices')
+                loader: async () => fetch('https://fitness-gamma.vercel.app/allservices')
             },
             {
                 path:'/details/:id',
@@ -55,7 +55,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path:'/update-review/:id',
                 element:<UpdateReview></UpdateReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/update-review/${params.id}`)
+                loader: ({params}) => fetch(`https://fitness-gamma.vercel.app/update-review/${params.id}`)
                 
             },
             {

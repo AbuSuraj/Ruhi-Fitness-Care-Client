@@ -18,7 +18,7 @@ const AddReview = ({serviceId,serviceName,refresh, setrefresh}) => {
             email:user?.email,
              text, serviceId, serviceName
         }
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://fitness-gamma.vercel.app/addReview', {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
