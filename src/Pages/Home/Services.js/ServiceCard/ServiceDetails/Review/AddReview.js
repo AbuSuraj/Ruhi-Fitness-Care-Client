@@ -1,17 +1,22 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../../../../Context/AuthProvider/AuthProvider';
 
 const AddReview = ({serviceId,refresh, setrefresh}) => {
     const {user} = useContext(AuthContext);
-    const {displayName,photoURL, email} = user;
+    const location = useLocation();
+    // const {displayName,photoURL, email} = user;
     const handleAddReview = e =>{
         e.preventDefault();
         const form = e.target;
         const text = form.text.value;
 
         const review = {
-            displayName, photoURL, email, text, serviceId
+            displayName: user?.displayName,
+            photoURL:user?.photoURL,
+            email:user?.email,
+             text, serviceId
         }
         fetch('http://localhost:5000/addReview', {
     method: 'POST',
@@ -37,7 +42,8 @@ const AddReview = ({serviceId,refresh, setrefresh}) => {
     }
     return (
         <div>
-            <form onSubmit={handleAddReview} >
+           {
+            user ? <form onSubmit={handleAddReview} >
             <div className="form-control "> 
             <textarea name='text' className="textarea textarea-primary  w-1/2 h-24 mx-auto" placeholder="Write a review"></textarea>
             </div>
@@ -47,6 +53,14 @@ const AddReview = ({serviceId,refresh, setrefresh}) => {
               </button>
            </div>
             </form>
+             :
+              <div>
+                <h2 className='font-bold text-lg text-center '>Want to give a review? 
+               <Link className='hover:bg-gray-400' to='/login' state ={{from: location}} replace> login here</Link> </h2> 
+               {/* <Navigate to={'/login'} state ={{from: location}} replace ></Navigate> */}
+              </div>
+           }
+            
         </div>
     );
 };

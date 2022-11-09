@@ -13,7 +13,7 @@ const AllReviews = ({serviceId, refresh, setrefresh}) => {
         <div className='my-10'>
                {/* < className='grid gap-6  ml-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'> */}
                 { 
-                reviews.length===0 ? 
+                reviews?.length===0 ? 
                 <h2 className='font-bold text-xl text-center '>No Reviews  available for this service</h2>
                 : 
                 <div>

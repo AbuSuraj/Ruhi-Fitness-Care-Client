@@ -4,8 +4,6 @@ const ReviewCard = ({ review }) => {
   const { displayName, photoURL, email, text } = review;
   return (
     <div>
-        
-	 
 	<div className="h-full flex flex-col   justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
 		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
 			<div className="px-4 h-full py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
