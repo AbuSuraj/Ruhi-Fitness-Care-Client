@@ -12,13 +12,14 @@ const AddServices = () => {
     const price = form.price.value;
     const duration = form.duration.value;
     const description = form.description.value;
- 
+    const created = new Date();
   const service = {
     title,
     img,
     price,
     duration,
-    description
+    description,
+    created
     
   }
   fetch('https://fitness-gamma.vercel.app/addService', {
