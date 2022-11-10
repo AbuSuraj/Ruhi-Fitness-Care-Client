@@ -20,7 +20,7 @@ const Login = () => {
     signInWithGithub,
   } = useContext(AuthContext);
   const from = location.state?.from?.pathname || "/";
-  console.log(location, from);
+  // console.log(location, from);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,7 +44,7 @@ const Login = () => {
           })
           .then(res => res.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
             localStorage.setItem('auth-token',data.token)
             navigate(from, { replace: true });
           })

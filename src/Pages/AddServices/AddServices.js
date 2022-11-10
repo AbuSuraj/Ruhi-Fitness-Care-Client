@@ -19,14 +19,12 @@ const AddServices = () => {
     price,
     duration,
     description,
-    created
-    
+    created  
   }
   fetch('https://fitness-gamma.vercel.app/addService', {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
-        // authorization: `Bearer ${localStorage.getItem('genius-token')}`
     },
     body: JSON.stringify(service)
 })
@@ -35,8 +33,7 @@ const AddServices = () => {
         console.log(data)
         if(data.acknowledged){
             toast.success('Service added successfully')
-            form.reset();
-            
+            form.reset();  
         }
     })
     .catch(er => console.error(er));

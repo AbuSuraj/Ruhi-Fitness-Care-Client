@@ -6,7 +6,7 @@ import MyReviewRow from './MyReviewRow';
 
 const MyReviews = () => {
     useTitle('My Review')
-    const {user, logout} = useContext(AuthContext);
+    const {user,loading, logout} = useContext(AuthContext);
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)
     useEffect(() =>{
@@ -62,7 +62,9 @@ const MyReviews = () => {
           })
         }
 
-        
+        if(loading){
+          return  <div className=" my-5 mx-auto w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> 
+      }
     return (
          
       <div className="overflow-x-auto  mt-10 mx-4">

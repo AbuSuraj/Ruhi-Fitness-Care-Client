@@ -11,18 +11,17 @@ const AddReview = ({serviceId,serviceName,refresh, setrefresh}) => {
         e.preventDefault();
         const form = e.target;
         const text = form.text.value;
-
+        const created = new Date();
         const review = {
             displayName: user?.displayName,
             photoURL:user?.photoURL,
             email:user?.email,
-             text, serviceId, serviceName
+             text, serviceId, serviceName, created
         }
         fetch('https://fitness-gamma.vercel.app/addReview', {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
-        // authorization: `Bearer ${localStorage.getItem('genius-token')}`
     },
     body: JSON.stringify(review)
 })
@@ -32,12 +31,11 @@ const AddReview = ({serviceId,serviceName,refresh, setrefresh}) => {
         if(data.acknowledged){
             setrefresh(!refresh);
             toast.success('review added successfully')
-            form.reset();
-            
+            form.reset();     
         }
     })
     .catch(er => console.error(er));
-  console.log(review)
+//   console.log(review)
 
     }
     return (
