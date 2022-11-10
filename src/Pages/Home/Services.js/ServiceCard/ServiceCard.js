@@ -12,14 +12,15 @@ const ServiceCard = ({service }) => {
         <div data-aos="fade-up" className="card card-compact w-96 bg-base-100 shadow-xl">
              <PhotoProvider>
              <PhotoView src={img}>
-            <figure><img className='w-full' src={img} alt="Shoes" /></figure>
+            <figure><img className='w-full' src={img} alt="service" /></figure>
              </PhotoView> 
              </PhotoProvider>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                 <p className='text-2xl text-orange-600 font-semibold'>Duration: {duration} weeks</p>
-                <p>{description.slice(0,100)}...</p>
+                {/* <p>{description.length>100 ?  description.slice(0,100): description}...</p> */}
+                <p>{description.length>100 ?  description.slice(0,100)+'...': description}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${_id}`}>
                         <button className="btn btn-primary">Details</button>

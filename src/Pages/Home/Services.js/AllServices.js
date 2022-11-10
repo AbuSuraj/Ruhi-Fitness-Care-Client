@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import ServiceCard from './ServiceCard/ServiceCard';
 
 const AllServices = () => {
     const services = useLoaderData();
     const {_id} = services;
+    useTitle('allservices')
     return (
         <div>
             <h2 className="text-5xl font-semibold my-10 text-center">My Workout Programs</h2>

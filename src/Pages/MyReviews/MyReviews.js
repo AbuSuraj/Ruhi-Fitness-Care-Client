@@ -10,18 +10,21 @@ const MyReviews = () => {
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)
     useEffect(() =>{
+        // fetch(`https://fitness-gamma.vercel.app/my-reviews/${user?.email}`
         fetch(`https://fitness-gamma.vercel.app/my-reviews/${user?.email}`,{
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('myReview-token')}`
-        }
+          headers:{
+            authorization : `Bearer ${localStorage.getItem('auth-token')}`
+          }
         })
-        .then(res =>{
-          if (res.status === 401 || res.status === 403) {
-          return logOut();
-      }
-      return res.json();})
-        .then(data => setMyReview(data))
-    },[user?.email,logOut])
+          .then((res) => res.json())
+          .then((data) => {
+            // if()
+            setMyReview(data);
+          })
+          .catch((err) => console.log(err));
+      }, [user?.email]);
+        
+    // },[user?.email])
     // console.log(myReview)
     const handleDelete = (id) =>{
         Swal.fire({
@@ -40,8 +43,8 @@ const MyReviews = () => {
             .then( res =>res.json())
             .then(data =>{
               /// deletedCount // dont forget this spelling
-              if(data.deletedCount > 0){
-                const remaining = myReview.filter(mrvw => mrvw._id !== id);
+              if(data?.deletedCount > 0){
+                const remaining = myReview?.filter(mrvw => mrvw._id !== id);
                 setMyReview(remaining);
                  
               }
@@ -72,7 +75,7 @@ const MyReviews = () => {
                     </thead>
                     <tbody>
                         {
-                            myReview.map(mReview => <MyReviewRow
+                            myReview?.map(mReview => <MyReviewRow
                                 key={mReview._id}
                                 mReview={mReview}
                                 handleDelete={handleDelete}

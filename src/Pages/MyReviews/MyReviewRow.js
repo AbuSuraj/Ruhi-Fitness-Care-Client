@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 
 const MyReviewRow = ({ mReview, handleDelete }) => {
   const { serviceName, text, _id } = mReview;
-  const [updatedReview, setNewReview] = useState()
+  // const [updatedReview, setNewReview] = useState()
 //   console.log(_id);
   const location = useLocation()
- console.log(updatedReview)
+//  console.log(updatedReview)
   return (
     <tr>
       <td className="border-8">

@@ -1,14 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import Review from "./Review/Review";
 import AOS from "aos";
 import "aos/dist/aos.css"
+import { AuthContext } from "../../../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../../../hooks/useTitle";
 const ServiceDetails = () => {
   const { _id, img, price, title, duration, description } = useLoaderData();
+  const {loading} = useContext(AuthContext);
+  useTitle('service details')
   useEffect(() => {
     AOS.init();
   }, []);
+
+  if(loading){
+    return  <div className=" my-5 mx-auto w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> 
+}
   return (
     <div>
       <h2 className="font-bold text-3xl text-center mt-4 mb-10 ml-4">service details</h2>
