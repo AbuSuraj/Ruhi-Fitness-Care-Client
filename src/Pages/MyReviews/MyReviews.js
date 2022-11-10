@@ -6,7 +6,7 @@ import MyReviewRow from './MyReviewRow';
 
 const MyReviews = () => {
     useTitle('My Review')
-    const {user, logOut} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
     const [myReview, setMyReview] = useState([]);
     // console.log(user.email)
     useEffect(() =>{
@@ -16,13 +16,17 @@ const MyReviews = () => {
             authorization : `Bearer ${localStorage.getItem('auth-token')}`
           }
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if (res.status === 401 || res.status === 403) {
+              return logout();
+          }
+           return res.json()})
           .then((data) => {
             // if()
             setMyReview(data);
           })
           .catch((err) => console.log(err));
-      }, [user?.email]);
+      }, [user?.email, logout]);
         
     // },[user?.email])
     // console.log(myReview)

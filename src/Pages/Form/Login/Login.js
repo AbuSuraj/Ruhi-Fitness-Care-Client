@@ -99,34 +99,34 @@ const Login = () => {
   };
 
   //Github login
-  const handleGithubSignin = () => {
-    signInWithGithub().then((result) => {
-      toast.success("Login Success!");
-      console.log(result.user);
-      const user = result.user;
-      const currentUser = {
-        email: user?.email,
-      };
-      fetch('https://fitness-gamma.vercel.app/jwt',{
-            method:"POST",
-            headers:{
-              'content-type':'application/json'
-            },
-            body: JSON.stringify(currentUser)
-          })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            localStorage.setItem('auth-token',data.token);
-            navigate(from, { replace: true });
+  // const handleGithubSignin = () => {
+  //   signInWithGithub().then((result) => {
+  //     toast.success("Login Success!");
+  //     console.log(result.user);
+  //     const user = result.user;
+  //     const currentUser = {
+  //       email: user?.email,
+  //     };
+  //     fetch('https://fitness-gamma.vercel.app/jwt',{
+  //           method:"POST",
+  //           headers:{
+  //             'content-type':'application/json'
+  //           },
+  //           body: JSON.stringify(currentUser)
+  //         })
+  //         .then(res => res.json())
+  //         .then(data => {
+  //           console.log(data);
+  //           localStorage.setItem('auth-token',data.token);
+  //           navigate(from, { replace: true });
             
-          })
-          .catch(err => {
-            console.log(err);
-          })
-      // navigate(from, { replace: true });
-    });
-  };
+  //         })
+  //         .catch(err => {
+  //           console.log(err);
+  //         })
+  //     // navigate(from, { replace: true });
+  //   });
+  // };
 
   //Reset Pass
   const handleReset = () => {
