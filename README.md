@@ -1,4 +1,4 @@
- # Ruhi's Fitness Center
+ # Ruhi's Fitness Care
 
 ## Project Description
 <li>A simple fitness trainging platform for a professional trainer.</li>
@@ -19,7 +19,10 @@
 ## Project live site link:
 
 <li>
-This project hosted in firebase. Live site link: https://ruhi-fitness-care.firebaseapp.com/
+This project hosted in firebase.
+ Live site link-1: https://ruhi-fitness-care.web.app
+ Live site link-2: https://ruhi-fitness-care.firebaseapp.com/
+
 </li>
 
 ### Used Resources 
